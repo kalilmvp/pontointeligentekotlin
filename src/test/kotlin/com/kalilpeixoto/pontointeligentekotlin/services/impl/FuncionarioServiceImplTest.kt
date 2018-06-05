@@ -65,6 +65,6 @@ class FuncionarioServiceImplTest {
         Assert.assertNotNull(funcionario)
     }
 
-    private fun funcionario(): Funcionario = Funcionario(ID, "Nome", EMAIL, SenhaUtils().gerarBCrypt("123456"),
-            CPF, PerfilEnum.ROLE_USUARIO, EMPRESA_ID)
+    private fun funcionario(): Funcionario = Funcionario("Nome", EMAIL, SenhaUtils().gerarBCrypt("123456"),
+            CPF, PerfilEnum.ROLE_USUARIO, EMPRESA_ID, 0.0, 0.0f, 0.0f, ID)
 }
