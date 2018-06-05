@@ -12,5 +12,4 @@ class PontointeligentekotlinApplicationTests {
     @Test
     fun contextLoads() {
     }
-
 }

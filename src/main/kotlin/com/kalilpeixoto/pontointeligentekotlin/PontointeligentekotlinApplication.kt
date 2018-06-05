@@ -9,7 +9,3 @@ class PontointeligentekotlinApplication
 fun main(args: Array<String>) {
     SpringApplication.run(PontointeligentekotlinApplication::class.java, *args)
 }
-
-fun algumaCoisa() {
-    println("testando")
-}
