@@ -17,6 +17,7 @@ import org.springframework.test.context.junit4.SpringRunner
 @SpringBootTest
 class EmpresaServiceImplTest {
 
+    private val ID = "1"
     private val CNPJ = "123456789"
 
     @Autowired
@@ -28,8 +29,16 @@ class EmpresaServiceImplTest {
     @Before
     @Throws(Exception::class)
     fun setUp() {
+        BDDMockito.given(empresaRepository?.findOne(ID)).willReturn(empresa())
         BDDMockito.given(empresaRepository?.findByCnpj(CNPJ)).willReturn(empresa())
         BDDMockito.given(empresaRepository?.save(empresa())).willReturn(empresa())
+    }
+
+    @Test
+    fun testBuscarEmpresaPorId(){
+        val empresa: Empresa? = empresaService?.findById(ID)
+        Assert.assertNotNull(empresa)
+        Assert.assertEquals(ID, empresa?.id)
     }
 
     @Test
@@ -47,5 +56,5 @@ class EmpresaServiceImplTest {
         Assert.assertEquals("Nova razão social", empresa?.razaoSocial)
     }
 
-    private fun empresa(): Empresa = Empresa(CNPJ, "Nova razão social", "1")
+    private fun empresa(): Empresa = Empresa(CNPJ, "Nova razão social", ID)
 }

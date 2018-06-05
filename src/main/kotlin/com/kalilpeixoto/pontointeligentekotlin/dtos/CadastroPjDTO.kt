@@ -20,9 +20,13 @@ data class CadastroPjDTO (
         @get:NotEmpty(message = "Senha não pode ser vazia")
         val senha: String = "",
 
-        @get:NotEmpty(message = "CPF não pode ser vazio")
-        @get:CPF(message = "CPG inválido")
+        @get:NotEmpty(message = "CPF não pode ser vazio.")
+        @get:CPF(message="CPF inválido")
         val cpf: String = "",
+
+        @get:NotEmpty(message = "CNPJ não pode ser vazio")
+        @get:CNPJ(message = "CNPJ inválido")
+        val cnpj: String = "",
 
         @get:NotEmpty(message = "Razão Social não pode ser vazia")
         @get:Length(min = 5, max = 200, message = "Razão Social deve conter entre 3 e 200 caracteres")

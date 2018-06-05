@@ -26,7 +26,7 @@ class PontointeligentekotlinApplication(val empresaRepository: EmpresaRepository
         funcionarioRepository.deleteAll()
         lancamentoRepository.deleteAll()
 
-        val empresa: Empresa = Empresa("Empresa", "10443887000146")
+        val empresa: Empresa = Empresa("10443887000146", "Empresa")
         empresaRepository.save(empresa)
 
         val admin: Funcionario = Funcionario("Admin", "admin@empresa.com",

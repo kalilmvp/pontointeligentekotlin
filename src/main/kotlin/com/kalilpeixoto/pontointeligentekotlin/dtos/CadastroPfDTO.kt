@@ -3,6 +3,7 @@ package com.kalilpeixoto.pontointeligentekotlin.dtos
 import org.hibernate.validator.constraints.Email
 import org.hibernate.validator.constraints.Length
 import org.hibernate.validator.constraints.NotEmpty
+import org.hibernate.validator.constraints.br.CNPJ
 import org.hibernate.validator.constraints.br.CPF
 
 data class CadastroPfDTO (
@@ -20,8 +21,12 @@ data class CadastroPfDTO (
         val senha: String = "",
 
         @get:NotEmpty(message = "CPF não pode ser vazio")
-        @get:CPF(message = "CPG inválido")
+        @get:CPF(message = "CPF inválido")
         val cpf: String = "",
+
+        @get:NotEmpty(message = "CNPJ não pode ser vazio")
+        @get:CNPJ(message = "CNPJ inválido")
+        val cnpj: String = "",
 
         val empresaId: String? = null,
         val valorHora: String? = null,
