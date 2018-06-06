@@ -57,13 +57,14 @@ class CadastroPJController(val empresaService: EmpresaService,
     }
 
     private fun converterDtoParaEmpresa(cadastroPJDto: CadastroPjDTO): Empresa =
-            Empresa(cadastroPJDto.cnpj, cadastroPJDto.razaoSocial)
+            Empresa(cadastroPJDto.cnpj, cadastroPJDto.razaoSocial, cadastroPJDto.id)
 
 
     private fun converterDtoParaFuncionario(cadastroPJDto: CadastroPjDTO, empresa: Empresa) =
             Funcionario(cadastroPJDto.nome, cadastroPJDto.email,
                     SenhaUtils().gerarBCrypt(cadastroPJDto.senha), cadastroPJDto.cpf,
-                    PerfilEnum.ROLE_ADMIN, empresa.id.toString())
+                    PerfilEnum.ROLE_ADMIN, empresa.id.toString(), null, null,
+                    null, cadastroPJDto.id)
 
     private fun converterCadastroPJDto(funcionario: Funcionario, empresa: Empresa): CadastroPjDTO =
             CadastroPjDTO(funcionario.nome, funcionario.email, "", funcionario.cpf,
